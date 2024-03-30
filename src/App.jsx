@@ -6,13 +6,12 @@ const App = () => {
 
   const [title, setTitle] = useState([])
 
-      fetch('https://railway.bulletinboard.techtrain.dev/threads?offset=0')
-      .then(response => {
-        return response.json();
-      }).then((data)=>{
-        console.log(data)
-        return setTitle(data);
-      })
+    fetch('https://railway.bulletinboard.techtrain.dev/threads?offset=0')
+    .then(response => {
+      return response.json();
+    }).then((data)=>{
+      return setTitle(data);
+    })
 
 
 
@@ -23,9 +22,9 @@ const App = () => {
       <div className='center'>
       <div className='Thread-description'>新着スレッド</div>
       {
-        title.map((obj)=>{
+        title.map((obj,i)=>{
           return (
-            <div className="thread-title" key={obj.title}>{obj.title}</div>
+            <div className="thread-title" value={obj.title} key={i}>{obj.title}</div>
             )
           })
         }
@@ -34,5 +33,6 @@ const App = () => {
     </>
   )
 }
+
 
 export default App
