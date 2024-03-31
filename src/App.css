@@ -40,3 +40,13 @@
   box-shadow: 5px 5px #ccc5c5;
   border-radius: 10px;
 }
+
+/* PostThread */
+.input-form{
+  margin: 30px;
+  width: 500px;
+  height: 30px;
+  box-shadow: 5px 5px #ccc5c5;
+  border-radius: 10px;
+
+}
