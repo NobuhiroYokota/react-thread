@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { Header } from "./Header"
+import { Postposts } from "./Postposts"
+import { BrowserRouter, Link, Route,Routes } from "react-router-dom";
 
 export const GetThread = () => {
 
@@ -11,8 +13,9 @@ export const GetThread = () => {
       return response.json();
     }).then((data)=>{
       return setTitle(data);
-    });
+    })
   },[]);
+
 
     return (
 
@@ -23,12 +26,14 @@ export const GetThread = () => {
             {
               title.map((obj,i)=>{
               return (
-                <div className="thread-title" value={obj.title} key={i}>{obj.title}</div>
+                <Link to={obj.id} className="title-decoration">
+                  <div className="thread-title" value={obj.title} key={i}>{obj.title}</div>
+                </Link>
                 )
               })
             }
         </div>
+        {/* <Postposts posts={title}/> */}
     </div>
     )
-
 }

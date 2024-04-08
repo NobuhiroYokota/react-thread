@@ -1,19 +1,22 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 import { BrowserRouter, Link, Route,Routes } from "react-router-dom";
 
-export const PostThread = () =>{
+import {GetPosts} from "./GetPosts"
 
-  const url="https://railway.bulletinboard.techtrain.dev/threads"
+export const Postposts = () => {
+  const [postName,setPostName] = useState("")
+  const {postId} = useParams()
 
-  const[ThreadName, setThreadName] = useState("");
+  const url=`https://railway.bulletinboard.techtrain.dev/threads/${postId}/posts`
 
-  const handleSubmit = () => {
+  const handlePost = () =>{
     fetch(url,{
       method: 'POST',
       headers: {
         'Content-type':'application/json'
       },
-      body:JSON.stringify({title: ThreadName})
+      body:JSON.stringify({post: postName})
     }
       ).then((response)=>{
         return response.json();
@@ -23,27 +26,27 @@ export const PostThread = () =>{
 
   }
 
-  return (
-
+  return(
     <div>
       <header className="header">
         <div className="header-description">掲示板</div>
       </header>
 
       <div className="center">
-        <div className="Thread-description">スレッドを投稿しよう！</div>
+        <div className="Thread-description">内容を投稿しよう！</div>
 
         <form>
           <label>スレッド名</label>
-          <input className="input-form" type="text" value={ThreadName} onChange={(e)=> setThreadName(e.target.value)}/>
-          <button onClick={handleSubmit}>投稿</button>
+          <input className="input-form" type="text" value={postName} onChange={(e)=> setPostName(e.target.value)}/>
+          <button onClick={handlePost}>投稿</button>
         </form>
         <div>
           <Link to={'/'}>topへ戻る</Link>
         </div>
       </div>
-
+      <GetPosts postId={postId}/>
     </div>
-
   )
 }
+
+export default Postposts
