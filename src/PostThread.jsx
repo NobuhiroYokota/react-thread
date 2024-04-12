@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { BrowserRouter, Link, Route,Routes } from "react-router-dom";
 
+import { Header } from "./Header";
+
 export const PostThread = () =>{
 
   const url="https://railway.bulletinboard.techtrain.dev/threads"
@@ -26,9 +28,7 @@ export const PostThread = () =>{
   return (
 
     <div>
-      <header className="header">
-        <div className="header-description">掲示板</div>
-      </header>
+      <Header />
 
       <div className="center">
         <div className="Thread-description">スレッドを投稿しよう！</div>

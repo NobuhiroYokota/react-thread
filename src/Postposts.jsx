@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { BrowserRouter, Link, Route,Routes } from "react-router-dom";
 
 import {GetPosts} from "./GetPosts"
+import { Header } from "./Header";
 
 export const Postposts = () => {
   const [postName,setPostName] = useState("")
@@ -28,9 +29,7 @@ export const Postposts = () => {
 
   return(
     <div>
-      <header className="header">
-        <div className="header-description">掲示板</div>
-      </header>
+      <Header />
 
       <div className="center">
         <div className="Thread-description">内容を投稿しよう！</div>

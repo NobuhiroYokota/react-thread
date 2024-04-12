@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Header } from "./Header"
-import { Postposts } from "./Postposts"
 import { BrowserRouter, Link, Route,Routes } from "react-router-dom";
 
 export const GetThread = () => {
@@ -33,7 +32,6 @@ export const GetThread = () => {
               })
             }
         </div>
-        {/* <Postposts posts={title}/> */}
     </div>
     )
 }

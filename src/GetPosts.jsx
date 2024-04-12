@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 export const GetPosts = (postId) =>{
-  // console.log(postId.postId)
 
   const[message, setMessage] = useState([])
 
